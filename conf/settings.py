@@ -4,7 +4,7 @@ import os
 env=environ.Env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+#environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # print(f"Reading .env file from: {env_file}")  # Debug print
 # environ.Env.read_env(env_file)
 
@@ -12,12 +12,12 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = "django-insecure-ag5k%#5@#m)o5j=t5b+j_m!7-40t@92p$t9obmu%s9o=ci-7hk"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+ALLOWED_HOSTS = ["api.urlshortener.uz", "127.0.0.1:8000"]
 
 
 # Application definitions
@@ -42,7 +42,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+SESSION_COOKIE_SECURE = False
 ROOT_URLCONF = 'conf.urls'
 
 TEMPLATES = [
@@ -66,10 +66,19 @@ WSGI_APPLICATION = 'conf.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+#DATABASES = {
+#    'default': env.db(),
+#}
 DATABASES = {
-    'default': env.db(),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': "qr_db",
+        'USER': "postgres",
+        'PASSWORD': "998359015a@",
+        'HOST': "localhost",
+        'PORT': 5432,
+    }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
