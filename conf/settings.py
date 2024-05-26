@@ -1,7 +1,7 @@
 from pathlib import Path
 import environ
 import os
-env=environ.Env()
+# env=environ.Env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 #environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
@@ -17,7 +17,7 @@ SECRET_KEY = "django-insecure-ag5k%#5@#m)o5j=t5b+j_m!7-40t@92p$t9obmu%s9o=ci-7hk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["api.urlshortener.uz", "127.0.0.1:8000"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definitions
@@ -42,7 +42,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-SESSION_COOKIE_SECURE = False
+# SESSION_COOKIE_SECURE = False
 ROOT_URLCONF = 'conf.urls'
 
 TEMPLATES = [
@@ -72,9 +72,9 @@ WSGI_APPLICATION = 'conf.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "qr_db",
+        'NAME': "qrcode_db",
         'USER': "postgres",
-        'PASSWORD': "998359015a@",
+        'PASSWORD': "1234",
         'HOST': "localhost",
         'PORT': 5432,
     }
@@ -116,15 +116,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# The directory where 'collectstatic' will collect static files for production
 STATIC_ROOT = BASE_DIR / 'static'
-
-# Additional locations of static files for development
-# STATICFILES_DIRS = [
-#     BASE_DIR / 'static',
-# ]
-
-# Media files (uploads)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
 

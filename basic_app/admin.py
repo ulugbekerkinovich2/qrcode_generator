@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Files, QrCodes
+from .models import File, QrCode
 
-@admin.register(Files)
+@admin.register(File)
 class FilesAdmin(admin.ModelAdmin):
     list_display = ('id', 'file')
 
-@admin.register(QrCodes)
+@admin.register(QrCode)
 class QrCodesAdmin(admin.ModelAdmin):
     list_display = ('id', 'image')

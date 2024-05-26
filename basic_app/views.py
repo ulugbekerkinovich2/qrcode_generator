@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.http import FileResponse
-from .models import Files
+from .models import File
 
 def serve_file(request, file_id):
-    file = get_object_or_404(Files, id=file_id)
-    return FileResponse(file.file)
+    files = get_object_or_404(File, id=file_id)
+    return FileResponse(files.file)
