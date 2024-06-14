@@ -14,9 +14,9 @@ from django.http import FileResponse
 from .models import File
 
 def serve_file(request, file_id):
-    print(f"File ID: {file_id}")
+    # print(f"File ID: {file_id}")
     file_instance = get_object_or_404(File, id=file_id)
-    print(f"File instance: {file_instance}")
+    # print(f"File instance: {file_instance}")
 
     # Open the file using the file field's path
     response = FileResponse(file_instance.files.open(), filename=file_instance.files.name)

@@ -7,7 +7,7 @@ class FilesAdmin(admin.ModelAdmin):
 
 @admin.register(QrCode)
 class QrCodesAdmin(admin.ModelAdmin):
-    list_display = ('id', 'image')
+    list_display = ['id', 'image', 'url_image']
 @admin.register(UploadFile)
 class UploadFilesAdmin(admin.ModelAdmin):
     list_display = ('id', 'file')
